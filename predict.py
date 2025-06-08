@@ -3,9 +3,19 @@ import pandas as pd
 import numpy as np
 import re
 import pickle
-import tensorflow as tf
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+
+# Download data NLTK
+nltk.download("stopwords")
+nltk.download("punkt")
+nltk.download("punkt_tab")
+
+
+# Stemmer Bahasa Indonesia
+factory = StemmerFactory()
+stemmer = factory.create_stemmer()
 
 # Set judul
 st.title("🚆 Analisis Sentimen Ulasan Pengguna KAI Access")
@@ -52,6 +62,8 @@ except:
     slang_dict = {}
 
 # Prediksi sentimen
+def predict_sentiment(text):
+# Fungsi untuk prediksi sentimen
 def predict_sentiment(text):
     clean_text = preprocess_input(text, slang_dict)
     seq = tokenizer.texts_to_sequences([clean_text])
