@@ -21,14 +21,9 @@ stemmer = factory.create_stemmer()
 # Set judul
 st.title("🚆 Analisis Sentimen Ulasan Pengguna KAI Access")
 
-# Load tokenizer dan model
-@st.cache_resource
-def load_model_tokenizer():
-    model = tf.keras.models.load_model("gru_word2vec_model.h5")
-    with open("tokenizer.pkl", "rb") as f:
-        tokenizer = pickle.load(f)
-    return model, tokenizer
-
+# Load model dan vectorizer
+model = joblib.load("gru_word2vec_model.h5")
+tokenizer = joblib.load("label_encoder_word2vec.pkl")
 model, tokenizer = load_model_tokenizer()
 maxlen = 100  # Panjang input seperti saat training
 
