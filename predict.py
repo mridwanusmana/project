@@ -7,6 +7,7 @@ import pickle
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+from tensorflow.keras.models import load_model
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 # Download data NLTK
