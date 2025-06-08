@@ -14,7 +14,7 @@ st.title("🚆 Analisis Sentimen Ulasan Pengguna KAI Access")
 @st.cache_resource
 def load_model_tokenizer():
     model = tf.keras.models.load_model("gru_word2vec_model.h5")
-    with open("gru_label_encoder_word2vec.pkl", "rb") as f:
+    with open("tokenizer.pkl", "rb") as f:
         tokenizer = pickle.load(f)
     return model, tokenizer
 
