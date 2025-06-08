@@ -23,7 +23,7 @@ stemmer = factory.create_stemmer()
 st.title("🚆 Analisis Sentimen Ulasan Pengguna KAI Access")
 
 # Load model dan vectorizer
-model = joblib.load("gru_word2vec_model.h5")
+model = load_model("gru_word2vec_model.h5")
 tokenizer = joblib.load("label_encoder_word2vec.pkl")
 model, tokenizer = load_model_tokenizer()
 maxlen = 100  # Panjang input seperti saat training
