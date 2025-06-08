@@ -61,8 +61,6 @@ try:
 except:
     slang_dict = {}
 
-# Prediksi sentimen
-def predict_sentiment(text):
 # Fungsi untuk prediksi sentimen
 def predict_sentiment(text):
     clean_text = preprocess_input(text, slang_dict)
